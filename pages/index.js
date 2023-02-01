@@ -16,7 +16,30 @@ export default function Home() {
     setValue(value)
 
   }
+  const uAnimate = {
+    hidden:{
+      opacity:0
+    },
+    visible:{
+      opacity:1,
+      transition:{
+        when:"beforeChildren",
+        staggerChildren:0.35
+      }
+    }
+  }
 
+  const lAnimate = {
+    hidden:{
+      x:"100vw"
+    },
+    visible:{
+      x:0,
+      transition:{
+        duration:1
+      }
+    }
+  }
   const array = [
     {
       img:"/red.png",
@@ -72,23 +95,23 @@ export default function Home() {
   <div className='h-full w-full bg-black opacity-95 relative overflow-hidden'>
   <Navbar/>
 <div className='contentContainer  items-center justify-center '>
-  <div className='absolute left-0 right-0 w-full' style={{zIndex:2}}> <motion.h1 className='text-[#161616] text-[210px] font-extrabold tracking-wider' initial={{scale:2}} animate={{scale:1}}>JORDAN</motion.h1></div>
+  <div className='absolute left-0 right-0 w-full' style={{zIndex:2}}> <motion.h1 className='text-[#161616] text-[210px] font-extrabold tracking-wider' initial={{scale:4}} animate={{scale:1}}>JORDAN</motion.h1></div>
   <Image src="/navigation bar.png" width={8} height={100} alt="shoe" className="absolute right-[35px] top-[235px]" style={{zIndex:3}}/>
   <div className="jordanShoe absolute left-0 right-0 w-full flex items-center justify-center ml-[50px]" style={{zIndex:5}}> 
-  <div style={{ZIndex:8}} className="absolute left-[30px] top-[80px]"><motion.h2 className={` text-[110px] font-extrabold tracking-normal mb-0`} style={{color:`${array[i].color}`,zIndex:8}} initial={{opacity:0,y:100}} animate={{opacity:1,y:0}} transition={{duration:0.5}}>Jump</motion.h2>
+  <div style={{zIndex:8}} className="absolute left-[30px] top-[80px]"><motion.h2 className={` text-[110px] font-extrabold tracking-normal mb-0`} style={{color:`${array[i].color}`,zIndex:8}} initial={{opacity:0,y:100}} animate={{opacity:1,y:0}} transition={{duration:0.5}}>Jump</motion.h2>
   <p className='text-center tracking-widest -mt-[1px] absolute -bottom-[10px] left-0 ' style={{letterSpacing:'14px',zIndex:10}}>Basketball Shoe</p></div>
    <motion.div initial={{opacity:0,scale:1,x:-700}} animate={{opacity:1,scale:1,x:0}} transition={{duration:0.7,delay:0.6,type:''}} style={{zIndex:3}}><Image src={array[i].img} width={1300} height={200} alt="shoe" className="-mt-[120px] -ml-[40px]" style={{zIndex:3}}/></motion.div>
    <div style={{zIndex:1}} className="absolute right-[130px] top-[90px]">
     <h3  style={{color:`${array[i].color}`}} className="ml-[200px] -mb-[30px] font-extrabold absolute top-[30px] right-0">2021 PF</h3>
     <motion.h2 className='text-[120px] tracking-wider font-extrabold' initial={{opacity:0,scale:1,x:700}} animate={{opacity:1,scale:1,x:0}} transition={{duration:0.7,type:''}}>man</motion.h2>
-    <div className='flex gap-[10px]'>
-    <div className='flex'>
-      <div><h3 style={{color:`${array[i].color}`}} className="font-extrabold text-2xl">134$</h3 ></div>
-      <div><h3 className='text-sm font-extrabold'>JORDAN</h3><h4 className='text-sm font-extrabold'>JUMPMAN 2021 PF</h4></div>
-      </div>
+    <motion.div className='flex gap-[10px]' variants={uAnimate} initial="hidden" animate="visible">
+    <motion.div className='flex gap-[20px]' >
+      <motion.div variants={lAnimate}><h3 style={{color:`${array[i].color}`}} className="font-extrabold text-2xl">134$</h3 ></motion.div>
+      <motion.div variants={lAnimate}><h3 className='text-sm font-extrabold'>JORDAN</h3><h4 className='text-sm font-extrabold'>JUMPMAN 2021 PF</h4></motion.div>
+      </motion.div>
 
-      <div><button style={{background:`${array[i].color}`}} className="text-white p-2 rounded-2xl">exclusive</button></div>
-    </div>
+      <motion.div ><motion.button variants={lAnimate} style={{background:`${array[i].color}`}} className="text-white p-2 rounded-2xl">exclusive</motion.button></motion.div>
+    </motion.div>
    
     
     </div>
@@ -113,8 +136,8 @@ export default function Home() {
     <motion.button className='bg-white text-black h-[35px] w-[130px] text-sm font-extrabold flex items-center justify-center' variants={liAnimate}>ADD TO CART</motion.button>    <motion.button  className='bg-transparent text-white h-[35px] w-[130px] text-sm font-extrabold border-[1px] border-white flex items-center justify-center' variants={liAnimate}>BUY NOW</motion.button>
   </motion.div>
   <motion.div className='ml-[70px]' initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7,delay:0.2}}>
-    <h2 className='font-extrabold'>INSPIRATION</h2>
-    <p className='w-[350px] text-sm'>Inspired by the design of the latest Air Jordan game shoe, the Jordan Jumpman 2021 helps up-and-coming players level up their game. </p>
+    <motion.h2 className='font-extrabold' initial={{x:400}} animate={{x:0}} transition={{duration:0.4,delay:0.3}}>INSPIRATION</motion.h2>
+    <motion.p className='w-[350px] text-sm' initial={{y:600}} animate={{y:0}} transition={{duration:0.6,delay:0.5}}>Inspired by the design of the latest Air Jordan game shoe, the Jordan Jumpman 2021 helps up-and-coming players level up their game. </motion.p>
   </motion.div>
 
 </div>

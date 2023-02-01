@@ -28,6 +28,32 @@ function Navbar() {
       }
     }
   }
+
+   const uAnimate = {
+    hidden:{
+      opacity:0
+    },
+    visible:{
+      opacity:1,
+      transition:{
+        when:"beforeChildren",
+        delay:1,
+        staggerChildren:0.35
+      }
+    }
+  }
+
+  const lAnimate = {
+    hidden:{
+      x:"100vw"
+    },
+    visible:{
+      x:0,
+      transition:{
+        duration:1
+      }
+    }
+  }
   return (
   <>
   <nav className='flex items-center justify-between p-4'>
@@ -45,12 +71,12 @@ function Navbar() {
     </motion.ul>
 
 </div>
-<div className='flex items-center gap-[20px] justify-center'>
-    <div><Image src="/Frame 8.png" width={20} height={100} alt="cart"/></div>
-    <div><Image src="/dashicons_cart.png" width={20} height={100} alt="cart"/></div>
-    <div><Image src="/avatar.png" width={20} height={100} alt="cart"/></div>
+<motion.div className='flex items-center gap-[20px] justify-center' >
+    <motion.div ><Image src="/Frame 8.png" width={20} height={100} alt="cart"/></motion.div>
+    <motion.div ><Image src="/dashicons_cart.png" width={20} height={100} alt="cart"/></motion.div>
+    <motion.div  ><Image src="/avatar.png" width={20} height={100} alt="cart"/></motion.div>
 
-</div>
+</motion.div>
   </nav>
   </>
   )
